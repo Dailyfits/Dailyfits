@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f1e9">
+  <meta name="description" content="DailyFits — kurasi OOTD hijab clean girl, casual, dan neutral essentials.">
+  <title>DailyFits — Your Everyday Outfit Edit</title>
+  <style>
+    :root {
+      --bg:#f7f1e9; --surface:#fffdf9; --ink:#352920; --muted:#827469;
+      --brown:#725744; --brown-dark:#4b392c; --line:#e8dcd0; --sand:#e9d9c8;
+      --sage:#a5a68b; --shadow:0 12px 35px rgba(65,45,31,.07);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    .container{width:min(1160px,calc(100% - 36px));margin:0 auto}
+    .announcement{background:var(--brown-dark);color:#fff8ef;text-align:center;padding:9px 12px;font-size:10px;letter-spacing:1.6px;text-transform:uppercase}
+    header{display:flex;align-items:center;justify-content:space-between;padding:23px 0;gap:20px}
+    .brand{font-family:Georgia,'Times New Roman',serif;font-size:30px;letter-spacing:-1.3px;font-weight:bold}
+    .brand span{color:var(--brown)}
+    .nav{display:flex;gap:22px;color:var(--muted);font-size:12px}
+    .nav a:hover{color:var(--ink)}
+    .hero{display:grid;grid-template-columns:1fr 1fr;min-height:460px;background:#eee3d6;border-radius:24px;overflow:hidden}
+    .hero-copy{padding:clamp(28px,5vw,66px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+    .eyebrow{font-size:10px;letter-spacing:2.1px;text-transform:uppercase;font-weight:700;color:var(--brown)}
+    h1,h2,h3,p{margin-top:0}
+    h1{font:normal clamp(43px,6vw,76px)/.98 Georgia,'Times New Roman',serif;letter-spacing:-2px;margin:18px 0}
+    .hero-copy p{font-size:14px;line-height:1.8;color:#76675b;max-width:390px;margin-bottom:22px}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 19px;background:var(--brown-dark);color:#fffaf4;border-radius:999px;font-size:11px;font-weight:bold;letter-spacing:.6px;border:1px solid var(--brown-dark);transition:.2s}
+    .button:hover{background:var(--brown);transform:translateY(-1px)}
+    .hero-visual{min-height:340px;position:relative;background:#d7c3af}
+    .hero-visual img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+    .hero-stamp{position:absolute;bottom:20px;left:20px;background:rgba(255,253,249,.91);padding:13px 16px;border-radius:12px;max-width:190px;box-shadow:var(--shadow)}
+    .hero-stamp strong{display:block;font:normal 18px Georgia,serif}
+    .hero-stamp span{font-size:10px;color:var(--muted);display:block;margin-top:5px}
+    .intro{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:66px 0 20px}
+    h2{font:normal clamp(30px,4vw,43px)/1.1 Georgia,'Times New Roman',serif;letter-spacing:-.8px;margin:8px 0 0}
+    .intro p{max-width:360px;color:var(--muted);font-size:12px;line-height:1.7;margin:0}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 25px}
+    .filter{border:1px solid var(--line);background:rgba(255,253,249,.72);color:var(--muted);padding:10px 16px;border-radius:999px;font-size:11px;cursor:pointer}
+    .filter:hover,.filter.active{background:var(--brown-dark);color:white;border-color:var(--brown-dark)}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+    .product{background:var(--surface);border:1px solid var(--line);border-radius:15px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .2s,box-shadow .2s}
+    .product:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .photo-wrap{position:relative;background:#eee5dc;aspect-ratio:4/5;overflow:hidden}
+    .photo-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+    .product:hover .photo-wrap img{transform:scale(1.035)}
+    .tag{position:absolute;top:11px;left:11px;background:rgba(255,253,249,.92);padding:6px 9px;border-radius:99px;font-size:9px;color:var(--brown-dark)}
+    .product-info{padding:14px;display:flex;flex-direction:column;flex:1}
+    .category{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+    .product h3{font-size:13px;line-height:1.4;margin:7px 0 6px;font-weight:600}
+    .desc{font-size:11px;line-height:1.6;color:var(--muted);margin-bottom:12px}
+    .meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;margin-bottom:12px}
+    .price{font-size:12px;font-weight:bold;color:var(--brown-dark)}
+    .store{font-size:9px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:5px 7px;white-space:nowrap}
+    .buy{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 8px;background:var(--brown-dark);color:white;border-radius:8px;font-size:10px;font-weight:bold;letter-spacing:.6px}
+    .buy:hover{background:var(--brown)}
+    .buy:focus-visible,.filter:focus-visible,a:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+    .empty{display:none;color:var(--muted);padding:30px 0}
+    .note{margin:46px 0 0;background:#eee3d6;border-radius:18px;padding:clamp(22px,4vw,38px);display:grid;grid-template-columns:.8fr 1.2fr;gap:25px;align-items:center}
+    .note h2{font-size:30px}
+    .note p{color:#76675b;font-size:12px;line-height:1.8;margin:0}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:58px 0}
+    .about-card{background:var(--surface);border:1px solid var(--line);padding:24px;border-radius:16px}
+    .about-card h3{font:normal 22px Georgia,serif;margin-bottom:10px}
+    .about-card p{color:var(--muted);font-size:12px;line-height:1.8;margin:0}
+    footer{border-top:1px solid var(--line);padding:24px 0 35px;display:flex;align-items:center;justify-content:space-between;gap:18px;color:var(--muted);font-size:10px}
+    .footer-brand{font: bold 20px Georgia,serif;color:var(--ink)}
+    .disclaimer{font-size:10px;color:var(--muted);line-height:1.7;max-width:620px}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{min-height:400px}.nav{gap:13px}}
+    @media(max-width:650px){
+      .container{width:calc(100% - 24px)}.announcement{font-size:9px;letter-spacing:1px}
+      header{padding:18px 0}.brand{font-size:27px}.nav{gap:12px;font-size:11px}.nav a:nth-child(2){display:none}
+      .hero{grid-template-columns:1fr}.hero-copy{padding:30px 25px 34px}.hero-visual{min-height:300px}
+      .intro{display:block;margin:46px 0 18px}.intro p{margin-top:12px}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-info{padding:11px}
+      .product h3{font-size:12px}.desc{font-size:10px}.meta{align-items:flex-start;flex-direction:column;gap:6px}
+      .note{grid-template-columns:1fr;gap:13px;margin-top:34px}.about{grid-template-columns:1fr;margin:35px 0;gap:12px}
+      footer{align-items:flex-start;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">A little outfit inspiration, just for you ✦</div>
+  <header class="container">
+    <a class="brand" href="#" aria-label="DailyFits beranda">Daily<span>Fits</span>.</a>
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="#produk">Shop the edit</a>
+      <a href="#tentang">About DailyFits</a>
+      <a href="#affiliate">Info affiliate</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow">The everyday outfit edit</div>
+        <h1 id="hero-title">Simple looks.<br>Lovely details.</h1>
+        <p>Kurasi outfit hijab yang effortless, nyaman, dan mudah di-mix & match. Temukan fashion finds pilihanmu dalam nuansa clean girl dan neutral tones.</p>
+        <a class="button" href="#produk">TEMUKAN OUTFIT <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=85" alt="Inspirasi gaya fashion sehari-hari" onerror="this.style.display='none'">
+        <div class="hero-stamp"><strong>Less, but lovely.</strong><span>Everyday essentials, thoughtfully picked.</span></div>
+      </div>
+    </section>
+
+    <section id="produk">
+      <div class="intro">
+        <div><div class="eyebrow">Curated for your closet</div><h2>Shop the look.</h2></div>
+        <p>Dari celana cutbray sampai hijab warna netral — item simpel untuk melengkapi gaya harianmu.</p>
+      </div>
+      <div class="filters" id="filters" aria-label="Filter kategori produk">
+        <button class="filter active" type="button" data-filter="Semua">Semua pilihan</button>
+        <button class="filter" type="button" data-filter="Celana">Celana</button>
+        <button class="filter" type="button" data-filter="Atasan">Atasan</button>
+        <button class="filter" type="button" data-filter="Hijab">Hijab</button>
+        <button class="filter" type="button" data-filter="Tas">Tas</button>
+        <button class="filter" type="button" data-filter="Sepatu">Sepatu</button>
+      </div>
+      <div class="grid" id="products" aria-live="polite"></div>
+      <p class="empty" id="empty">Belum ada produk pada kategori ini.</p>
+    </section>
+
+    <section class="note" id="tentang">
+      <div><div class="eyebrow">A note from DailyFits</div><h2>Everyday style,<br>made simpler.</h2></div>
+      <p>DailyFits adalah ruang kecil untuk menemukan inspirasi OOTD hijab yang simpel dan versatile. Kami mengkurasi item yang mudah dipadukan, mulai dari basic tops, celana cutbray, hijab netral, hingga aksesori pelengkap. Simpan look favoritmu, lalu sesuaikan dengan gayamu sendiri.</p>
+    </section>
+
+    <section class="about" id="affiliate">
+      <div class="about-card"><h3>Shop your way</h3><p>Tombol produk akan mengarahkanmu ke toko terkait di Shopee atau TikTok Shop. Cek ukuran, warna, ulasan, harga, dan ongkos kirim langsung di halaman toko sebelum membeli.</p></div>
+      <div class="about-card"><h3>Affiliate disclosure</h3><p>Beberapa tautan di DailyFits adalah tautan affiliate. Jika kamu membeli melalui tautan tersebut, DailyFits mungkin menerima komisi sesuai ketentuan platform, tanpa biaya tambahan yang ditetapkan oleh DailyFits.</p></div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div><div class="footer-brand">DailyFits.</div><div style="margin-top:7px">© <span id="year"></span> DailyFits · Made for everyday style</div></div>
+    <div class="disclaimer">Harga, stok, variasi, dan promo mengikuti halaman toko. Foto contoh harus diganti dengan foto produk yang boleh digunakan. Tautan demo wajib diganti dengan tautan affiliate asli sebelum website dipublikasikan.</div>
+  </footer>
+
+  <script>
+    /*
+      EDIT PRODUK DI SINI:
+      - name: nama item
+      - category: Celana, Atasan, Hijab, Tas, atau Sepatu
+      - description: keterangan pendek
+      - price: harga atau teks "Cek harga di toko"
+      - store: "Shopee" atau "TikTok Shop"
+      - image: URL foto yang boleh digunakan, atau path seperti "images/celana-cutbray.jpg"
+      - link: tautan affiliate ASLI dari platform
+      Link saat ini hanya contoh dan belum menjamin komisi.
+    */
+    const products = [
+      {
+        name: "Black Cutbray Jeans",
+        category: "Celana",
+        description: "Siluet flared untuk gaya casual yang effortless.",
+        price: "Cek harga di toko",
+        store: "Shopee",
+        image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=85",
+        link: "https://shopee.co.id/"
+      },
+      {
+        name: "Basic Casual Shirt",
+        category: "Atasan",
+        description: "Atasan simpel untuk dipadukan dengan denim.",
+        price: "Cek harga di toko",
+        store: "TikTok Shop",
+        image: "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=800&q=85",
+        link: "https://www.tiktok.com/shop"
+      },
+      {
+        name: "Nude Daily Hijab",
+        category: "Hijab",
+        description: "Warna netral yang mudah masuk ke banyak look.",
+        price: "Cek harga di toko",
+        store: "Shopee",
+        image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85",
+        link: "https://shopee.co.id/"
+      },
+      {
+        name: "Neutral Shoulder Bag",
+        category: "Tas",
+        description: "Aksesori warna lembut untuk daily outfit.",
+        price: "Cek harga di toko",
+        store: "TikTok Shop",
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=85",
+        link: "https://www.tiktok.com/shop"
+      },
+      {
+        name: "White Everyday Sneakers",
+        category: "Sepatu",
+        description: "Pilihan alas kaki untuk tampilan kasual.",
+        price: "Cek harga di toko",
+        store: "Shopee",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85",
+        link: "https://shopee.co.id/"
+      },
+      {
+        name: "Cream Knit Top",
+        category: "Atasan",
+        description: "Basic top untuk palet warna cream dan earth tone.",
+        price: "Cek harga di toko",
+        store: "TikTok Shop",
+        image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=800&q=85",
+        link: "https://www.tiktok.com/shop"
+      },
+      {
+        name: "Black Daily Trousers",
+        category: "Celana",
+        description: "Celana basic untuk padu padan yang versatile.",
+        price: "Cek harga di toko",
+        store: "Shopee",
+        image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=85",
+        link: "https://shopee.co.id/"
+      },
+      {
+        name: "Minimal Crossbody Bag",
+        category: "Tas",
+        description: "Tas kecil untuk melengkapi outfit harian.",
+        price: "Cek harga di toko",
+        store: "TikTok Shop",
+        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=85",
+        link: "https://www.tiktok.com/shop"
+      }
+    ];
+
+    const grid = document.getElementById("products");
+    const empty = document.getElementById("empty");
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+      }[char]));
+    }
+    function safeURL(value) {
+      try {
+        const url = new URL(value, window.location.href);
+        return ["https:", "http:"].includes(url.protocol) ? url.href : "#";
+      } catch { return "#"; }
+    }
+    function render(category = "Semua") {
+      const list = category === "Semua" ? products : products.filter(item => item.category === category);
+      grid.innerHTML = list.map(item => `
+        <article class="product">
+          <div class="photo-wrap">
+            <img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.name)}" loading="lazy"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x750/eee3d6/4b392c?text=Tambahkan+Foto';">
+            <span class="tag">${escapeHTML(item.category)}</span>
+          </div>
+          <div class="product-info">
+            <div class="category">Daily edit</div>
+            <h3>${escapeHTML(item.name)}</h3>
+            <div class="desc">${escapeHTML(item.description)}</div>
+            <div class="meta"><span class="price">${escapeHTML(item.price)}</span><span class="store">${escapeHTML(item.store)}</span></div>
+            <a class="buy" href="${safeURL(item.link)}" target="_blank" rel="sponsored nofollow noopener">CEK PRODUK <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      `).join("");
+      empty.style.display = list.length ? "none" : "block";
+    }
+    document.querySelectorAll(".filter").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".filter").forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        render(button.dataset.filter);
+      });
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+    render();
+  </script>
+</body>
+</html>
